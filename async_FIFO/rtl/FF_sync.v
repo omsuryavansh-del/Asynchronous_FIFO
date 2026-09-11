@@ -1,12 +1,12 @@
-module FF_sync (
+module FF_sync #(parameter width = 3) (
     input dest_clk,
     input rst_n,
 
-    input ptr,
-    output sync_ptr
+    input [width:0] ptr,
+    output [width:0] sync_ptr
 
 );
-reg sync_ff1 , sync_ff2;
+reg [width-1:0] sync_ff1 , sync_ff2;
 always @(posedge dest_clk or negedge rst_n) begin 
     if (!rst_n) begin 
         sync_ff1 = 0;
