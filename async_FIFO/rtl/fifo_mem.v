@@ -3,7 +3,6 @@ module fifo_mem #(parameter data_width = 8, depth = 8 ,ptr_width = $clog2(depth)
 //clock signals
     input wr_clk,
     input rd_clk,
-    input wr_rst_n,
     input rd_rst_n,
 
 //address
@@ -25,14 +24,8 @@ module fifo_mem #(parameter data_width = 8, depth = 8 ,ptr_width = $clog2(depth)
 
     reg [data_width-1:0] mem [0:depth - 1];
     
-    always @(posedge wr_clk or negedge wr_rst_n) begin
-        if(!wr_rst_n) begin
-            mem[wr_addr] <= 0;
-            data_out <= 0;
-        end
-        else begin
+    always @(posedge wr_clk) begin
             if(write_en && !full) mem[wr_addr] <= data_in;
-        end
     end
     
     always @(posedge rd_clk or negedge rd_rst_n) begin

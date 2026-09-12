@@ -60,6 +60,10 @@ module top #(parameter data_width = 8, depth = 8, ptr_width = $clog2(depth) )(
     );
 
     fifo_mem #(data_width, depth, ptr_width) fifo_memory (
+        .wr_clk(clk_wr),
+        .rd_clk(clk_rd),
+        .rd_rst_n(rst_rd),
+        
         .wr_addr(write_addr),
         .rd_addr(read_addr),
 

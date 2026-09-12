@@ -24,7 +24,7 @@ always @(posedge wr_clk or negedge wr_rst_n) begin
         if (write_en && (!full)) begin  
                 wr_ptr <= wr_ptr + 1;
                 //binary to gray logic
-                wr_gptr <= {(wr_ptr >> 1) ^ wr_ptr};
+                wr_gptr <= {((wr_ptr + 1) >> 1) ^ (wr_ptr + 1)};
         end
     end 
 end
