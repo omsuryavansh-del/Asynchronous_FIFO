@@ -18,6 +18,7 @@ module top #(parameter data_width = 8, depth = 8, ptr_width = $clog2(depth) )(
 
     wire [ptr_width:0] async_wr_gptr, async_rd_gptr, sync_rd_gptr, sync_wr_gptr;
     wire full_con,empty_con;
+    wire [ptr_width-1:0] write_addr, read_addr;
 
     write_ptr #(ptr_width) write_pointer (
         .wr_clk(clk_wr),

@@ -19,9 +19,9 @@ always @(posedge rd_clk or negedge rd_rst_n) begin
     end
     else begin
         if(read_en && (!empty)) begin
-            rd_ptr <= rd_ptr + 1;
+            rd_ptr <= rd_ptr + 1'b1;
             //gray logic
-            rd_gptr <= (rd_ptr >> 1) ^ (rd_ptr);
+            rd_gptr <= ((rd_ptr + 1'b1) >> 1) ^ (rd_ptr + 1'b1);
         end
     end
 end

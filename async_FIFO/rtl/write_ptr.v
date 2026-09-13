@@ -22,9 +22,9 @@ always @(posedge wr_clk or negedge wr_rst_n) begin
     else begin 
 
         if (write_en && (!full)) begin  
-                wr_ptr <= wr_ptr + 1;
+                wr_ptr <= wr_ptr + 1'b1;
                 //binary to gray logic
-                wr_gptr <= {((wr_ptr + 1) >> 1) ^ (wr_ptr + 1)};
+                wr_gptr <= {((wr_ptr + 1'b1) >> 1) ^ (wr_ptr + 1'b1)};
         end
     end 
 end
