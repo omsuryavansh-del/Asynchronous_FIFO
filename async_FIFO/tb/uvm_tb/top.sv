@@ -1,10 +1,10 @@
 `include "uvm_macros.svh"
-`include "../rtl/fifo.v"
-`include "u_fif.sv"
+`include "../../rtl/top.v"
+`include "a_fif.sv"
 `include "fifo_assertion.sv"
 
 import uvm_pkg::*;
-import u_fpkg::*;
+import af_fpkg::*;
 
 
 module top;
@@ -12,7 +12,7 @@ module top;
     reg clk;
     u_fif f_if(clk);
 
-    fifo dut(
+    top dut(
         .clk(clk),
         .rst_n(f_if.rst_n),
         .write_en(f_if.write_en),

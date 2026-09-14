@@ -1,29 +1,35 @@
 `include "uvm_macros.svh"
 import uvm_pkg::*;
-import u_fpkg::*;
+import af_fpkg::*;
+
+`uvm_analysis_imp_decl(_wr)   // declares a new type: uvm_analysis_imp_wr#(T, coverage)
+`uvm_analysis_imp_decl(_rd)   // declares: uvm_analysis_imp_rd#(T, coverage)
 
 class coverage extends uvm_component;
     `uvm_component_utils(coverage)
-    uvm_analysis_imp #(transaction,coverage) item_collected;
-    transaction tr;
+    uvm_analysis_imp_wr #(item_wr, coverage) item_collected;
+    uvm_analysis_imp_rd #(item_rd, coverage) item_collected;
+
+    item_wr tr_wr;
+    item_rd tr_rd;
 
     covergroup cg;
-        write :coverpoint  tr.write_en {
+        write :coverpoint  tr_wr.write_en {
             bins write1 = {1};
             bins write0 = {0};
         }
 
-        read :coverpoint tr.read_en {
+        read :coverpoint tr_rd.read_en {
             bins read0 = {0};
             bins read1 = {1};
         }
 
-        full :coverpoint tr.full {
+        full :coverpoint tr_wr.full {
             bins full0 = {0};
             bins full1 = {1};
         } 
 
-        empty :coverpoint tr.empty {
+        empty :coverpoint tr_rd.empty {
             bins empty0 = {0};
             bins empty1 = {1};
         }
@@ -49,8 +55,13 @@ class coverage extends uvm_component;
         super.build_phase(phase);
     endfunction
 
-    function void write(transaction req);
-        tr = req;
+    virtual function void write_wr(item_wr req);
+        wr_tr = req;
+        cg.sample();
+    endfunction
+
+    virtual function void write_rd(item_rd req);
+        rd_tr = req;
         cg.sample();
     endfunction
 

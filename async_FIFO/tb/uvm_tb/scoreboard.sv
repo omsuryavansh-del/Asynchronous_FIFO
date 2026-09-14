@@ -1,6 +1,6 @@
 `include "uvm_macros.svh"
 import uvm_pkg::*;
-import u_fpkg::*;
+import af_fpkg::*;
 
 `uvm_analysis_imp_decl(_wr)   // declares a new type: uvm_analysis_imp_wr#(T, scoreboard)
 `uvm_analysis_imp_decl(_rd)   // declares: uvm_analysis_imp_rd#(T, scoreboard)
@@ -26,24 +26,29 @@ class scoreboard extends uvm_scoreboard;
         super.build_phase(phase);
     endfunction
 
-    function void write(transaction req);
+    virtual function void write_wr(item_wr req);
         bit did_pop = 0;
-            $display("transaction recieved from monitor rst_n = %0b || w_en = %0b || rd_en = %0b || data_in = %0b || data_out = %0b",
-                        req.rst_n,req.write_en,req.read_en,req.data_in,req.data_out);
-            if(req.write_en && (fifo.size() < 8)) begin
-                fifo.push_back(req.data_in);
-            end
-            if(req.read_en && (fifo.size() > 0))begin
-                expected = fifo.pop_front();
-                did_pop = 1;
-            end
-            
-            if((fifo.size() == 8) !== req.full) $display("full mismatch expected = %0d || got = %0d",fifo.size(),req.full);
+        $display("transaction recieved from monitor rst_n = %0b || w_en = %0b || rd_en = %0b || data_in = %0b || data_out = %0b",
+                    req.rst_n,req.write_en,req.read_en,req.data_in,req.data_out);
+        if(req.write_en && (fifo.size() < 8)) begin
+            fifo.push_back(req.data_in);
+        end
+        
+        if((fifo.size() == 8) !== req.full) $display("full mismatch expected = %0d || got = %0d",fifo.size(),req.full);
+
+    endfunction
+        
+    virtual function void write_rd(item_rd req);
+        bit did_pop = 0;            
+        if(req.read_en && (fifo.size() > 0))begin
+            expected = fifo.pop_front();
+            did_pop = 1;
+        end
             if((fifo.size() == 0) !== req.empty) $display("empty mismatch expected = %0d || got = %0d",fifo.size(),req.empty);
             if(did_pop) begin
                 if(expected !== req.data_out) begin
-                    `uvm_info("RESuLT",$sformatf("test failed rst_n = %0b | expected = %0b || data_in = %0b || got :: w_en = %0b || rd_en = %0b || data_out = %0b ",
-                                req.rst_n, expected, req.data_in, req.write_en, req.read_en, req.data_out),UVM_HIGH)
+                    `uvm_info("RESuLT",$sformatf("test failed rst_n = %0b | expected = %0b || data_in = %0b ||  rd_en = %0b || data_out = %0b ",
+                                req.rst_n, expected, req.data_in, req.read_en, req.data_out),UVM_HIGH)
                     $display("\n=========================================\n");
                     fail++;
                 end

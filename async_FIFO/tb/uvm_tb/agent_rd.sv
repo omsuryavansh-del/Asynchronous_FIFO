@@ -1,6 +1,6 @@
 `include "uvm_macros.svh"
 import uvm_pkg::*;
-import u_fpkg::*;
+import af_fpkg::*;
 
 class agent_rd extends uvm_agent;
     `uvm_component_utils(agent_rd)

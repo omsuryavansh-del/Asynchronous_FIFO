@@ -1,6 +1,6 @@
 `include "uvm_macros.svh"
 import uvm_pkg::*;
-import u_fpkg::*;
+import af_fpkg::*;
 
 class driver_wr extends uvm_driver #(item_wr);
     `uvm_component_utils(driver_wr)

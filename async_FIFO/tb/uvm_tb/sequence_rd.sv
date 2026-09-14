@@ -1,6 +1,6 @@
 `include "uvm_macros.svh"
 import uvm_pkg::*;
-import u_fpkg::*;
+import af_fpkg::*;
 
 class base_seq extends uvm_sequence  item_rd);
     `uvm_object_utils(base_seq)
@@ -17,11 +17,11 @@ class base_seq extends uvm_sequence  item_rd);
     endtask
 endclass
 
-class read_seq_high extends base_seq;
-    `uvm_object_utils(read_seq_high)
+class read_seq extends base_seq;
+    `uvm_object_utils(read_seq)
      item_rd tr;
 
-    function new (string name = "read_seq_high");
+    function new (string name = "read_seq");
         super.new(name);
     endfunction
 
@@ -30,25 +30,6 @@ class read_seq_high extends base_seq;
         tr = item_rd::type_id::create("tr");
         start_item(tr);
             assert(tr.randomize() with {(read_en == 1) ;})
-                else `uvm_fatal ("GEN","randomization failed");
-        finish_item(tr);
-    end
-    endtask
-endclass
-
-class read_seq_low extends base_seq;
-    `uvm_object_utils(read_seq_low)
-     item_rd tr;
-
-    function new (string name = "read_seq_low");
-        super.new(name);
-    endfunction
-
-    task body ();
-    repeat(num_trans) begin
-        tr = item_rd::type_id::create("tr");
-        start_item(tr);
-            assert(tr.randomize() with {(read_en == 0) ;})
                 else `uvm_fatal ("GEN","randomization failed");
         finish_item(tr);
     end

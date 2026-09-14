@@ -1,6 +1,6 @@
 `include "uvm_macros.svh"
 import uvm_pkg::*;
-import u_fpkg::*;
+import af_fpkg::*;
 
 class monitor_wr extends uvm_monitor;
     `uvm_component_utils(monitor_wr)

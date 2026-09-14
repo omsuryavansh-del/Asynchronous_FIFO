@@ -1,6 +1,6 @@
 `include "uvm_macros.svh"
 import uvm_pkg::*;
-import u_fpkg::*;
+import af_fpkg::*;
 
 class driver_rd extends uvm_driver #(item_rd);
     `uvm_component_utils(driver_rd)
@@ -18,7 +18,7 @@ class driver_rd extends uvm_driver #(item_rd);
 
     task reset_phase(uvm_phase phase);
         phase.raise_objection(this);
-        f_if.rd_rst_n     = 0;
+        f_if.rd_rst_n  = 0;
         f_if.read_en   = 0;
         f_if.data_in   = 0;
         repeat(2) @(posedge f_if.clk_rd);
