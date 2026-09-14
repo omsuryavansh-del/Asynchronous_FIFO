@@ -29,7 +29,7 @@ class scoreboard extends uvm_scoreboard;
     virtual function void write_wr(item_wr req);
         bit did_pop = 0;
         $display("transaction recieved from monitor rst_n = %0b || w_en = %0b || rd_en = %0b || data_in = %0b || data_out = %0b",
-                    req.rst_n,req.write_en,req.read_en,req.data_in,req.data_out);
+                    req.wr_rst_n,req.write_en,req.read_en,req.data_in,req.data_out);
         if(req.write_en && (fifo.size() < 8)) begin
             fifo.push_back(req.data_in);
         end
@@ -47,8 +47,8 @@ class scoreboard extends uvm_scoreboard;
             if((fifo.size() == 0) !== req.empty) $display("empty mismatch expected = %0d || got = %0d",fifo.size(),req.empty);
             if(did_pop) begin
                 if(expected !== req.data_out) begin
-                    `uvm_info("RESuLT",$sformatf("test failed rst_n = %0b | expected = %0b || data_in = %0b ||  rd_en = %0b || data_out = %0b ",
-                                req.rst_n, expected, req.data_in, req.read_en, req.data_out),UVM_HIGH)
+                    `uvm_info("RESuLT",$sformatf("test failed rd_rst_n = %0b | expected = %0b || data_in = %0b ||  rd_en = %0b || data_out = %0b ",
+                                req.rd_rst_n, expected, req.data_in, req.read_en, req.data_out),UVM_HIGH)
                     $display("\n=========================================\n");
                     fail++;
                 end

@@ -14,7 +14,7 @@ class monitor_rd extends uvm_monitor;
 
     function void build_phase (uvm_phase phase);
         super.build_phase(phase);
-        if(!(uvm_config_db#(virtual a_fif)::get(this,"","a _fif",f_if))) 
+        if(!(uvm_config_db#(virtual a_fif)::get(this,"","a_fif",f_if))) 
         `uvm_fatal("MON","config db vif not found anywhere");
     endfunction
 

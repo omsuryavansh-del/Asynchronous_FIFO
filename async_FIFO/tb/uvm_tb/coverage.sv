@@ -7,8 +7,8 @@ import af_fpkg::*;
 
 class coverage extends uvm_component;
     `uvm_component_utils(coverage)
-    uvm_analysis_imp_wr #(item_wr, coverage) item_collected;
-    uvm_analysis_imp_rd #(item_rd, coverage) item_collected;
+    uvm_analysis_imp_wr #(item_wr, coverage) item_collected_wr;
+    uvm_analysis_imp_rd #(item_rd, coverage) item_collected_rd;
 
     item_wr tr_wr;
     item_rd tr_rd;
@@ -47,7 +47,9 @@ class coverage extends uvm_component;
 
     function new(string name = "coverage", uvm_component parent = null);
         super.new(name,parent);
-        item_collected = new("item_collected",this);
+        item_collected_wr = new("item_collected_wr",this);
+        item_collected_rd = new("item_collected_rd",this);  
+    
         cg = new();
     endfunction
 
@@ -56,12 +58,12 @@ class coverage extends uvm_component;
     endfunction
 
     virtual function void write_wr(item_wr req);
-        wr_tr = req;
+        tr_wr = req;
         cg.sample();
     endfunction
 
     virtual function void write_rd(item_rd req);
-        rd_tr = req;
+        tr_rd = req;
         cg.sample();
     endfunction
 

@@ -1,5 +1,5 @@
 
-package af_pkg;
+package af_fpkg;
     `include "item_rd.sv"
     `include "item_wr.sv"
     `include "sequence_wr.sv"

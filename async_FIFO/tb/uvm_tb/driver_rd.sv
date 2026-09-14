@@ -20,7 +20,6 @@ class driver_rd extends uvm_driver #(item_rd);
         phase.raise_objection(this);
         f_if.rd_rst_n  = 0;
         f_if.read_en   = 0;
-        f_if.data_in   = 0;
         repeat(2) @(posedge f_if.clk_rd);
         f_if.rd_rst_n = 1;
         phase.drop_objection(this);
@@ -32,7 +31,6 @@ class driver_rd extends uvm_driver #(item_rd);
                 @(posedge f_if.clk_rd)
                 if(f_if.rd_rst_n) begin
                     f_if.read_en = req.read_en;
-                    f_if.data_in = req.data_in;
                     $display("read transaction sent to dut rd_rst_n = %0b ||rd_en = %0b || data_in = %0b",
                               f_if.rd_rst_n, req.read_en, req.data_in);
                 end

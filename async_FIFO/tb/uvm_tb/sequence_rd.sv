@@ -2,12 +2,12 @@
 import uvm_pkg::*;
 import af_fpkg::*;
 
-class base_seq extends uvm_sequence  item_rd);
-    `uvm_object_utils(base_seq)
+class base_seq_rd extends uvm_sequence #(item_rd);
+    `uvm_object_utils(base_seq_rd)
     int num_trans = 16;
      item_rd tr;
 
-    function new(string name = "base_seq");
+    function new(string name = "base_seq_rd");
         super.new(name);
     endfunction
 
@@ -17,7 +17,7 @@ class base_seq extends uvm_sequence  item_rd);
     endtask
 endclass
 
-class read_seq extends base_seq;
+class read_seq extends base_seq_rd;
     `uvm_object_utils(read_seq)
      item_rd tr;
 

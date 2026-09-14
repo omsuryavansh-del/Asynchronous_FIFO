@@ -14,7 +14,7 @@ class monitor_wr extends uvm_monitor;
 
     function void build_phase (uvm_phase phase);
         super.build_phase(phase);
-        if(!(uvm_config_db#(virtual a_fif)::get(this,"","a _fif",f_if))) 
+        if(!(uvm_config_db#(virtual a_fif)::get(this,"","a_fif",f_if))) 
         `uvm_fatal("MON","config db vif not found anywhere");
     endfunction
 
@@ -32,8 +32,8 @@ task run_phase(uvm_phase phase);
                 tr.full = f_if.full; 
                 tr.empty = f_if.empty; 
 
-                $display("item_wr sent to scoreboard wr_rst_n = %0b || w_en = %0b || rd_en = %0b || data_in = %0b || data_out = %0b",
-                    tr.wr_rst_n,tr.write_en,tr.read_en,tr.data_in,tr.data_out);
+                $display("item_wr sent to scoreboard wr_rst_n = %0b || w_en = %0b || data_in = %0b || data_out = %0b",
+                    tr.wr_rst_n,tr.write_en,tr.data_in,tr.data_out);
                 item_collected_port.write(tr);
             end
         end
