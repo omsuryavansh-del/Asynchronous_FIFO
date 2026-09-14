@@ -18,7 +18,7 @@ class driver_wr extends uvm_driver #(item_wr);
 
     task reset_phase(uvm_phase phase);
         phase.raise_objection(this);
-        f_if.wr_rst_n     = 0;
+        f_if.wr_rst_n  = 0;
         f_if.write_en  = 0;
         f_if.read_en   = 0;
         f_if.data_in   = 0;

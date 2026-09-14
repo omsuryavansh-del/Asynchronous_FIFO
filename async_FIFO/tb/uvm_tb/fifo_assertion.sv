@@ -2,28 +2,28 @@
 import uvm_pkg::*;
 
 module fifo_assertion(
-    input clk, rst_n,
+    input clk_wr, clk_rd, wr_rst_n, rd_rst_n,
     input write_en, read_en,
     input full, empty
     );
 
     property no_full_and_empty;
-        @(posedge clk) disable iff (!rst_n)
+        @(posedge clk_wr) disable iff (!wr_rst_n)
         !(full && empty);
     endproperty
   
     property write_while_full ;
-        @(posedge clk) disable iff (!rst_n)
+        @(posedge clk_wr) disable iff (!wr_rst_n)
         (write_en && full && (!read_en)) |-> (full); 
     endproperty
 
     property reset_clears_fifo;
-        @(posedge clk)
-        $rose(rst_n) |-> empty;
+        @(posedge clk_rd) disable iff (!rd_rst_n)
+        $rose(rd_rst_n) |-> empty;
     endproperty
 
     property no_unknown_flags;
-        @(posedge clk) disable iff (!rst_n)
+        @(posedge clk_wr) disable iff (!wr_rst_n)
         !$isunknown({full, empty});
     endproperty
    
