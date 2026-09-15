@@ -34,11 +34,6 @@ class coverage extends uvm_component;
             bins empty1 = {1};
         }
 
-        write_read :cross write,read {
-            bins wr1_rd1 = binsof(write.write1) && binsof(read.read1);
-            ignore_bins wr0_rd0 = binsof(write.write0) && binsof(read.read0);
-        }
-
         full_empty :cross full,empty {
             bins full0_empty0 = binsof(full.full0) && binsof(empty.empty0);
             illegal_bins full1_empty1 = binsof(full.full1) && binsof(empty.empty1);
@@ -49,7 +44,8 @@ class coverage extends uvm_component;
         super.new(name,parent);
         item_collected_wr = new("item_collected_wr",this);
         item_collected_rd = new("item_collected_rd",this);  
-    
+        tr_wr = item_wr::type_id::create("tr_wr");
+        tr_rd = item_rd::type_id::create("tr_rd");
         cg = new();
     endfunction
 

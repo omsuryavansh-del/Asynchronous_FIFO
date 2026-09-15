@@ -11,7 +11,7 @@ class scoreboard extends uvm_scoreboard;
     uvm_analysis_imp_wr #(item_wr, scoreboard) export_wr;
     uvm_analysis_imp_rd #(item_rd, scoreboard) export_rd;
     
-    int fifo [$];
+    logic fifo [$];
     logic [7:0] expected;
     int pass = 0;
     int fail = 0;
@@ -27,24 +27,34 @@ class scoreboard extends uvm_scoreboard;
     endfunction
 
     virtual function void write_wr(item_wr req);
-        bit did_pop = 0;
-        $display("transaction recieved from monitor rst_n = %0b || w_en = %0b || rd_en = %0b || data_in = %0b || data_out = %0b",
-                    req.wr_rst_n,req.write_en,req.read_en,req.data_in,req.data_out);
-        if(req.write_en && (fifo.size() < 8)) begin
-            fifo.push_back(req.data_in);
-        end
-        
-        if((fifo.size() == 8) !== req.full) $display("full mismatch expected = %0d || got = %0d",fifo.size(),req.full);
+   
+        $display("transaction recieved from monitor rst_n = %0b || w_en = %0b || data_in = %0b || data_out = %0b",
+                    req.wr_rst_n,req.write_en,req.data_in,req.data_out);
+        if(!req.wr_rst_n) fifo.delete();
+        else 
+        begin                
+            if(req.write_en && (fifo.size() < 8)) begin
+                fifo.push_back(req.data_in);
+            end
 
+            if((fifo.size() == 8) !== req.full) $display("full mismatch expected = %0d || got = %0d",fifo.size(),req.full);
+        end
     endfunction
         
     virtual function void write_rd(item_rd req);
-        bit did_pop = 0;            
-        if(req.read_en && (fifo.size() > 0))begin
-            expected = fifo.pop_front();
-            did_pop = 1;
-        end
+        bit did_pop = 0;   
+        $display("transaction recieved from monitor rst_n = %0b || rd_en = %0b || data_in = %0b || data_out = %0b",
+                    req.rd_rst_n,req.read_en,req.data_in,req.data_out);
+        if(!req.rd_rst_n) fifo.delete();
+        else
+        begin                 
+            if(req.read_en && (fifo.size() > 0))begin
+                expected = fifo.pop_front();
+                did_pop = 1;
+            end
+
             if((fifo.size() == 0) !== req.empty) $display("empty mismatch expected = %0d || got = %0d",fifo.size(),req.empty);
+
             if(did_pop) begin
                 if(expected !== req.data_out) begin
                     `uvm_info("RESuLT",$sformatf("test failed rd_rst_n = %0b | expected = %0b || data_in = %0b ||  rd_en = %0b || data_out = %0b ",
@@ -57,7 +67,8 @@ class scoreboard extends uvm_scoreboard;
                     $display("\n=========================================\n");
                     pass++;
                 end
-            end       
+            end   
+        end            
     endfunction
 
     function void report_phase(uvm_phase phase);

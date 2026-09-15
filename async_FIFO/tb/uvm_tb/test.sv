@@ -16,7 +16,7 @@ class test extends uvm_test;
 
 endclass
 
-class reset_test extends test;
+/*class reset_test extends test;
     `uvm_component_utils(reset_test)
 
     function new (string name = "reset_test",uvm_component parent = null);
@@ -30,7 +30,7 @@ class reset_test extends test;
             rseq.start_with(env.ag_rd.sqr, 1);   
         phase.drop_objection(this);
     endtask
-endclass
+endclass*/
 
 class write_test extends test;
     `uvm_component_utils(write_test)
@@ -156,66 +156,45 @@ endclass
 
 class all_test extends test;
     `uvm_component_utils(all_test)
-    reset_test  rst_test            ;
-    write_test  wr_test             ;
-    read_test    rd_test            ;
-    rd_aftr_wr  rd_wr_test          ;
-    seq_rd_aftr_wr  seq_rd_wr       ;
-    conc_continous  continous_test  ;
-    full_bndry_wrprnd   full_test   ;
-    empty_bndry_wrprnd   empty_test ;
 
     function new(string name = "all_test", uvm_component parent = null);
         super.new(name, parent);
     endfunction
 
-    function void build_phase(uvm_phase phase);
-        super.build_phase(phase);
-        rst_test = reset_test::type_id::create("rst_test");
-        wr_test = write_test::type_id::create("wr_test");
-        rd_test = read_test::type_id::create("rd_test");
-        rd_wr_test = rd_aftr_wr::type_id::create("rd_wr_test");
-        seq_rd_wr = seq_rd_aftr_wr::type_id::create("seq_rd_wr");
-        continous_test = conc_continous::type_id::create("continous_test");
-        full_test = full_bndry_wrprnd::type_id::create("full_test");
-        empty_test = empty_bndry_wrprnd::type_id::create("empty_test");
-    endfunction
+    task do_reset_check();
+        read_seq rseq = read_seq::type_id::create("rseq");
+        rseq.start_with(env.ag_rd.sqr, 1);
+    endtask
+
+    task do_write(int n);
+        write_seq wseq = write_seq::type_id::create("wseq");
+        wseq.start_with(env.ag_wr.sqr, n);
+    endtask
+
+    task do_read(int n);
+        read_seq rseq = read_seq::type_id::create("rseq");
+        rseq.start_with(env.ag_rd.sqr, n);
+    endtask
+
+    task do_concurrent(int n);
+        fork
+            begin write_seq w = write_seq::type_id::create("w"); w.start_with(env.ag_wr.sqr, n); end
+            begin read_seq  r = read_seq::type_id::create("r");  r.start_with(env.ag_rd.sqr, n); end
+        join
+    endtask
 
     task run_phase(uvm_phase phase);
+        phase.raise_objection(this);
 
-        begin 
-            `uvm_info("ALL_TEST", "starting reset_test", UVM_LOW)
-            rst_test.run_phase(uvm_phase phase);
-            `uvm_info("ALL_TEST", "reset_test finished", UVM_LOW)
+        `uvm_info("ALL_TEST", "starting reset_test", UVM_LOW)  do_reset_check();
+        `uvm_info("ALL_TEST", "starting write_test",  UVM_LOW)  do_write(8);
+        `uvm_info("ALL_TEST", "starting read_test",   UVM_LOW)  do_read(8);
+        `uvm_info("ALL_TEST", "starting rd_aftr_wr",  UVM_LOW)  do_write(8); do_read(8);
+        `uvm_info("ALL_TEST", "starting concurrent",  UVM_LOW)  do_concurrent(50);
+        `uvm_info("ALL_TEST", "starting full bndry",  UVM_LOW)  do_write(32);
+        `uvm_info("ALL_TEST", "starting empty bndry", UVM_LOW)  do_read(32);
 
-            `uvm_info("ALL_TEST", "starting write_seq", UVM_LOW)
-            wr_test.run_phase(uvm_phase phase);
-            `uvm_info("ALL_TEST", "write_seq finished", UVM_LOW)
-        
-            `uvm_info("ALL_TEST", "starting read_seq", UVM_LOW)
-            rd_test.run_phase(uvm_phase phase);
-            `uvm_info("ALL_TEST", "read_seq finished", UVM_LOW)
-        
-            `uvm_info("ALL_TEST", "starting rd_wr_test", UVM_LOW)
-            rd_wr_test.run_phase(uvm_phase phase);
-            `uvm_info("ALL_TEST", "rd_wr_test finished", UVM_LOW)
-
-            `uvm_info("ALL_TEST", "starting seq_rd_wr", UVM_LOW)
-            seq_rd_wr.run_phase(uvm_phase phase);
-            `uvm_info("ALL_TEST", "seq_rd_wr finished", UVM_LOW)
-        
-            `uvm_info("ALL_TEST", "starting continous_test", UVM_LOW)
-            continous_test.run_phase(uvm_phase phase);
-            `uvm_info("ALL_TEST", "continous_test finished", UVM_LOW)
-        
-            `uvm_info("ALL_TEST", "starting full_test", UVM_LOW)
-            full_test.run_phase(uvm_phase phase);
-            `uvm_info("ALL_TEST", "full_test finished", UVM_LOW)
-            
-            `uvm_info("ALL_TEST", "starting empty_test", UVM_LOW)
-            empty_test.run_phase(uvm_phase phase);
-            `uvm_info("ALL_TEST", "empty_test finished", UVM_LOW)
-        end
+        phase.drop_objection(this);
     endtask
 
     function void report_phase(uvm_phase phase);

@@ -28,14 +28,12 @@ task run_phase(uvm_phase phase);
             if(f_if.wr_rst_n)begin
                 tr.write_en = f_if.write_en; 
                 tr.data_in = f_if.data_in; 
-                tr.data_out = f_if.data_out; 
                 tr.full = f_if.full; 
-                tr.empty = f_if.empty; 
-
-                $display("item_wr sent to scoreboard wr_rst_n = %0b || w_en = %0b || data_in = %0b || data_out = %0b",
-                    tr.wr_rst_n,tr.write_en,tr.data_in,tr.data_out);
-                item_collected_port.write(tr);
+                tr.data_out = f_if.data_out; 
             end
+            $display("item_wr sent to scoreboard wr_rst_n = %0b || w_en = %0b || data_in = %0b || data_out = %0b",
+                    tr.wr_rst_n,tr.write_en,tr.data_in,tr.data_out);
+            item_collected_port.write(tr);
         end
     endtask
 endclass

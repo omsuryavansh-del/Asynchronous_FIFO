@@ -29,15 +29,15 @@ module fifo_assertion(
    
     
     assert property (no_full_and_empty)
-    else `uvm_error("ASSERT","full and empty asserted simultaneously!")
+    else `uvm_error("ASSERT","full and empty asserted simultaneously!");
         
     assert property (write_while_full)
-    else `uvm_error("ASSERT","write happenned on fifo full")      
+    else `uvm_error("ASSERT","write happenned on fifo full")  ;    
             
     assert property (reset_clears_fifo)
-    else `uvm_error("ASSERT","FIFO not empty immediately after reset deasserted!")
+    else `uvm_error("ASSERT","FIFO not empty immediately after reset deasserted!");
 
     assert property (no_unknown_flags)
-    else `uvm_error("ASSERT","full or empty is X/Z!")
+    else `uvm_error("ASSERT","full or empty is X/Z!");
 
 endmodule
