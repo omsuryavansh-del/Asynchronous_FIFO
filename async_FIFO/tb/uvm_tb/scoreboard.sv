@@ -11,10 +11,12 @@ class scoreboard extends uvm_scoreboard;
     uvm_analysis_imp_wr #(item_wr, scoreboard) export_wr;
     uvm_analysis_imp_rd #(item_rd, scoreboard) export_rd;
     
-    logic fifo [$];
+    logic [7:0] fifo [$];
     logic [7:0] expected;
     int pass = 0;
     int fail = 0;
+    int full_mismatch = 0;
+    int empty_mismatch = 0;
 
     function new(string name = "scoreboard",uvm_component parent = null);
         super.new(name,parent);
@@ -30,14 +32,29 @@ class scoreboard extends uvm_scoreboard;
    
         $display("transaction recieved from monitor rst_n = %0b || w_en = %0b || data_in = %0b || data_out = %0b",
                     req.wr_rst_n,req.write_en,req.data_in,req.data_out);
-        if(!req.wr_rst_n) fifo.delete();
+        if(!req.wr_rst_n) begin
+            fifo.delete();
+            full_mismatch = 0;
+        end
         else 
         begin                
             if(req.write_en && (fifo.size() < 8)) begin
                 fifo.push_back(req.data_in);
             end
 
-            if((fifo.size() == 8) !== req.full) $display("full mismatch expected = %0d || got = %0d",fifo.size(),req.full);
+            if((fifo.size() == 8) !== req.full)begin 
+                 $display("full mismatch expected = %0d || got = %0d",fifo.size(),req.full);
+                 `uvm_error("SCB", "full failed to assert when FIFO genuinely full!")
+            end
+
+            if((fifo.size() < 8) && req.full) begin 
+                full_mismatch++;
+                if(full_mismatch > 3) begin
+                    `uvm_error("SCB", $sformatf("full stuck asserted for %0d cycles after room available!", full_mismatch))
+                end
+            else
+                full_mismatch = 0;   
+            end     
         end
     endfunction
         
@@ -45,7 +62,10 @@ class scoreboard extends uvm_scoreboard;
         bit did_pop = 0;   
         $display("transaction recieved from monitor rst_n = %0b || rd_en = %0b || data_in = %0b || data_out = %0b",
                     req.rd_rst_n,req.read_en,req.data_in,req.data_out);
-        if(!req.rd_rst_n) fifo.delete();
+        if(!req.rd_rst_n) begin
+            fifo.delete();
+            empty_mismatch = 0;
+        end
         else
         begin                 
             if(req.read_en && (fifo.size() > 0))begin
@@ -53,7 +73,19 @@ class scoreboard extends uvm_scoreboard;
                 did_pop = 1;
             end
 
-            if((fifo.size() == 0) !== req.empty) $display("empty mismatch expected = %0d || got = %0d",fifo.size(),req.empty);
+            if((fifo.size() == 0) && !req.empty)begin
+                 $display("empty mismatch expected = %0d || got = %0d",fifo.size(),req.empty);
+                 `uvm_error("SCB", "empty failed to assert when FIFO genuinely empty!")
+            end
+
+            if((fifo.size() > 0) && req.empty) begin 
+                empty_mismatch++;
+                if(empty_mismatch > 3) begin
+                    `uvm_error("SCB", $sformatf("empty stuck asserted for %0d cycles after data available!", empty_mismatch))
+                end
+            else
+                empty_mismatch = 0;   
+            end
 
             if(did_pop) begin
                 if(expected !== req.data_out) begin
