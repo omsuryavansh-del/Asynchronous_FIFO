@@ -1,0 +1,22 @@
+BEGIN 3:a_fif:fast__1:work
+    clk_wr :  1:af_fpkg:fast:work
+    read_en :  1:af_fpkg:fast:work
+    full :  1:af_fpkg:fast:work
+    wr_rst_n :  1:af_fpkg:fast:work
+    clk_rd :  1:af_fpkg:fast:work
+    data_out :  1:af_fpkg:fast:work
+    write_en :  1:af_fpkg:fast:work
+    data_in :  1:af_fpkg:fast:work
+    empty :  1:af_fpkg:fast:work
+    rd_rst_n :  1:af_fpkg:fast:work
+END 
+BEGIN 3:a_fif:fast__2:work
+    full :  1:top:fast:work 1:top_tb:fast:work
+    data_in :  1:top_tb:fast:work
+    rd_rst_n :  1:top:fast:work 1:top_tb:fast:work
+    read_en :  1:top:fast:work 1:top_tb:fast:work
+    empty :  1:top:fast:work 1:top_tb:fast:work
+    data_out :  1:top_tb:fast:work
+    wr_rst_n :  1:top:fast:work 1:top_tb:fast:work
+    write_en :  1:top:fast:work 1:top_tb:fast:work
+END 

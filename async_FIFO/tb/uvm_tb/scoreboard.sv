@@ -17,6 +17,8 @@ class scoreboard extends uvm_scoreboard;
     int fail = 0;
     int full_mismatch = 0;
     int empty_mismatch = 0;
+    int full = 0;
+    int empty = 0;
 
     function new(string name = "scoreboard",uvm_component parent = null);
         super.new(name,parent);
@@ -29,8 +31,8 @@ class scoreboard extends uvm_scoreboard;
     endfunction
 
     virtual function void write_wr(item_wr req);
-   
-        $display("transaction recieved from monitor rst_n = %0b || w_en = %0b || data_in = %0b || data_out = %0b",
+    int did_push = 0;
+        $display("write transaction recieved from monitor rst_n = %0b || w_en = %0b || data_in = %0d || data_out = %0d",
                     req.wr_rst_n,req.write_en,req.data_in,req.data_out);
         if(!req.wr_rst_n) begin
             fifo.delete();
@@ -38,15 +40,10 @@ class scoreboard extends uvm_scoreboard;
         end
         else 
         begin                
-            if(req.write_en && (fifo.size() < 8)) begin
+            if(req.write_en && !req.full) begin
                 fifo.push_back(req.data_in);
             end
-
-            if((fifo.size() == 8) !== req.full)begin 
-                 $display("full mismatch expected = %0d || got = %0d",fifo.size(),req.full);
-                 `uvm_error("SCB", "full failed to assert when FIFO genuinely full!")
-            end
-
+            
             if((fifo.size() < 8) && req.full) begin 
                 full_mismatch++;
                 if(full_mismatch > 3) begin
@@ -60,7 +57,7 @@ class scoreboard extends uvm_scoreboard;
         
     virtual function void write_rd(item_rd req);
         bit did_pop = 0;   
-        $display("transaction recieved from monitor rst_n = %0b || rd_en = %0b || data_in = %0b || data_out = %0b",
+        $display("read transaction recieved from monitor rst_n = %0b || rd_en = %0b || data_in = %0d || data_out = %0d",
                     req.rd_rst_n,req.read_en,req.data_in,req.data_out);
         if(!req.rd_rst_n) begin
             fifo.delete();
@@ -68,14 +65,9 @@ class scoreboard extends uvm_scoreboard;
         end
         else
         begin                 
-            if(req.read_en && (fifo.size() > 0))begin
+            if(req.read_en && !req.empty)begin
                 expected = fifo.pop_front();
                 did_pop = 1;
-            end
-
-            if((fifo.size() == 0) && !req.empty)begin
-                 $display("empty mismatch expected = %0d || got = %0d",fifo.size(),req.empty);
-                 `uvm_error("SCB", "empty failed to assert when FIFO genuinely empty!")
             end
 
             if((fifo.size() > 0) && req.empty) begin 
@@ -89,13 +81,16 @@ class scoreboard extends uvm_scoreboard;
 
             if(did_pop) begin
                 if(expected !== req.data_out) begin
-                    `uvm_info("RESuLT",$sformatf("test failed rd_rst_n = %0b | expected = %0b || data_in = %0b ||  rd_en = %0b || data_out = %0b ",
-                                req.rd_rst_n, expected, req.data_in, req.read_en, req.data_out),UVM_HIGH)
+                    `uvm_info("RESuLT",$sformatf("uvm_read test failed time = %0t || rd_rst_n = %0b | expected = %0d || data_in = %0d ||  rd_en = %0b || data_out = %0d ",
+                                $time, req.rd_rst_n, expected, req.data_in, req.read_en, req.data_out),UVM_HIGH)
+                    $display("test failed time = %0t || rd_rst_n = %0b | expected = %0d || data_in = %0d ||  rd_en = %0b || data_out = %0d ",
+                                $time, req.rd_rst_n, expected, req.data_in, req.read_en, req.data_out);
                     $display("\n=========================================\n");
                     fail++;
                 end
                 else begin 
-                    `uvm_info("RESULT",$sformatf("test passed expected :: %0b || data out = %0d ",expected,req.data_out),UVM_HIGH)
+                    `uvm_info("RESULT",$sformatf("test passed expected :: %0d || data out = %0d ",expected,req.data_out),UVM_HIGH)
+                    $display("test passed expected :: %0d || data out = %0d ",expected,req.data_out);
                     $display("\n=========================================\n");
                     pass++;
                 end

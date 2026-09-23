@@ -34,7 +34,7 @@ class driver_wr extends uvm_driver #(item_wr);
                 if(f_if.wr_rst_n) begin
                     f_if.write_en = req.write_en;
                     f_if.data_in = req.data_in;
-                    $display("write transaction sent to dut wr_rst_n = %0b || w_en = %0b || data_in = %0b",
+                    $display("write transaction sent to dut wr_rst_n = %0b || w_en = %0b || data_in = %0d",
                               f_if.wr_rst_n, req.write_en, req.data_in);
                 end
             seq_item_port.item_done();

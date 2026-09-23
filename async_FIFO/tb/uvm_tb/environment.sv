@@ -27,9 +27,9 @@ class environment extends uvm_env;
     function void connect_phase(uvm_phase phase);
         super.connect_phase(phase);
         ag_rd.items.connect(scb.export_rd);
-        ag_rd.items.connect(cov.item_collected_rd);
+        ag_rd.items.connect(cov.item_collected_crd);
         ag_wr.items.connect(scb.export_wr);
-        ag_wr.items.connect(cov.item_collected_wr);
+        ag_wr.items.connect(cov.item_collected_cwr);
     endfunction
 
 endclass

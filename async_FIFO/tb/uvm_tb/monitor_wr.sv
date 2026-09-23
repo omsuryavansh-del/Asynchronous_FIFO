@@ -31,7 +31,7 @@ task run_phase(uvm_phase phase);
                 tr.full = f_if.full; 
                 tr.data_out = f_if.data_out; 
             end
-            $display("item_wr sent to scoreboard wr_rst_n = %0b || w_en = %0b || data_in = %0b || data_out = %0b",
+            $display("item_wr sent to scoreboard wr_rst_n = %0b || w_en = %0b || data_in = %0d || data_out = %0d",
                     tr.wr_rst_n,tr.write_en,tr.data_in,tr.data_out);
             item_collected_port.write(tr);
         end

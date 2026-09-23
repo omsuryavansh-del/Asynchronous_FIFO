@@ -31,7 +31,7 @@ class driver_rd extends uvm_driver #(item_rd);
                 @(posedge f_if.clk_rd)
                 if(f_if.rd_rst_n) begin
                     f_if.read_en = req.read_en;
-                    $display("read transaction sent to dut rd_rst_n = %0b ||rd_en = %0b || data_in = %0b",
+                    $display("read transaction sent to dut rd_rst_n = %0b ||rd_en = %0b || data_in = %0d",
                               f_if.rd_rst_n, req.read_en, req.data_in);
                 end
             seq_item_port.item_done();

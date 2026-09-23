@@ -2,13 +2,13 @@
 import uvm_pkg::*;
 import af_fpkg::*;
 
-`uvm_analysis_imp_decl(_wr)   // declares a new type: uvm_analysis_imp_wr#(T, coverage)
-`uvm_analysis_imp_decl(_rd)   // declares: uvm_analysis_imp_rd#(T, coverage)
+`uvm_analysis_imp_decl(_cwr)   // declares a new type: uvm_analysis_imp_wr#(T, coverage)
+`uvm_analysis_imp_decl(_crd)   // declares: uvm_analysis_imp_rd#(T, coverage)
 
 class coverage extends uvm_component;
     `uvm_component_utils(coverage)
-    uvm_analysis_imp_wr #(item_wr, coverage) item_collected_wr;
-    uvm_analysis_imp_rd #(item_rd, coverage) item_collected_rd;
+    uvm_analysis_imp_cwr #(item_wr, coverage) item_collected_cwr;
+    uvm_analysis_imp_crd #(item_rd, coverage) item_collected_crd;
 
     item_wr tr_wr;
     item_rd tr_rd;
@@ -42,8 +42,8 @@ class coverage extends uvm_component;
 
     function new(string name = "coverage", uvm_component parent = null);
         super.new(name,parent);
-        item_collected_wr = new("item_collected_wr",this);
-        item_collected_rd = new("item_collected_rd",this);  
+        item_collected_cwr = new("item_collected_cwr",this);
+        item_collected_crd = new("item_collected_crd",this);
         tr_wr = item_wr::type_id::create("tr_wr");
         tr_rd = item_rd::type_id::create("tr_rd");
         cg = new();
@@ -53,12 +53,12 @@ class coverage extends uvm_component;
         super.build_phase(phase);
     endfunction
 
-    virtual function void write_wr(item_wr req);
+    virtual function void write_cwr(item_wr req);
         tr_wr = req;
         cg.sample();
     endfunction
 
-    virtual function void write_rd(item_rd req);
+    virtual function void write_crd(item_rd req);
         tr_rd = req;
         cg.sample();
     endfunction
