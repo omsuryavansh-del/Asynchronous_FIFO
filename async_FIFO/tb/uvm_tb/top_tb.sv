@@ -50,7 +50,7 @@ module top_tb;
         clk_wr = 0;
         clk_rd = 0;
         uvm_config_db#(virtual a_fif)::set(null,"","a_fif",f_if);
-        run_test("all_test");
+        run_test("conc_continous");
     end
 
 endmodule

@@ -28,7 +28,7 @@ class driver_rd extends uvm_driver #(item_rd);
     task run_phase (uvm_phase phase);
         forever begin
             seq_item_port.get_next_item(req);
-                @(posedge f_if.clk_rd)
+                @(negedge f_if.clk_rd)
                 if(f_if.rd_rst_n) begin
                     f_if.read_en = req.read_en;
                     $display("read transaction sent to dut rd_rst_n = %0b ||rd_en = %0b || data_in = %0d",

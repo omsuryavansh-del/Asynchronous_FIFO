@@ -30,7 +30,7 @@ class driver_wr extends uvm_driver #(item_wr);
     task run_phase (uvm_phase phase);
         forever begin
             seq_item_port.get_next_item(req);
-                @(posedge f_if.clk_wr)
+                @(negedge f_if.clk_wr)
                 if(f_if.wr_rst_n) begin
                     f_if.write_en = req.write_en;
                     f_if.data_in = req.data_in;

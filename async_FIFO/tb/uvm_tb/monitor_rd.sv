@@ -22,17 +22,16 @@ task run_phase(uvm_phase phase);
     super.run_phase(phase);
         forever begin
             item_rd tr = item_rd::type_id::create("tr");
-            @(posedge f_if.clk_rd);
-            #1;
-            tr.rd_rst_n = f_if.rd_rst_n;
-            if(f_if.rd_rst_n)begin
-                tr.read_en = f_if.read_en; 
-                tr.data_out = f_if.data_out; 
-                tr.empty = f_if.empty; 
-                tr.data_in = f_if.data_in;
-            end
-            $display("item_rd sent to scoreboard rd_rst_n = %0b || rd_en = %0b || data_in = %0d || data_out = %0d",
-            tr.rd_rst_n,tr.read_en,tr.data_in,tr.data_out);
+
+            @(f_if.rd_mon_cb);
+
+            tr.rd_rst_n = f_if.rd_mon_cb.rd_rst_n;           
+            tr.read_en = f_if.rd_mon_cb.read_en; 
+            tr.data_out = f_if.rd_mon_cb.data_out; 
+            tr.empty = f_if.rd_mon_cb.empty; 
+            
+            $display("item_rd sent to scoreboard rd_rst_n = %0b || rd_en = %0b || data_out = %0d",
+            tr.rd_rst_n,tr.read_en,tr.data_out);
             item_collected_port.write(tr);
         end
     endtask

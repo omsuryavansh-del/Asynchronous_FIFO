@@ -41,9 +41,11 @@ class write_test extends test;
 
     task run_phase(uvm_phase phase);
         write_seq wseq = write_seq::type_id::create("wseq");
+        read_seq_low rdl = read_seq_low::type_id::create("rdl");
 
         phase.raise_objection(this);
-            wseq.start_with(env.ag_wr.sqr, 8);   
+            wseq.start_with(env.ag_wr.sqr, 8);
+            rdl.start_with(env.ag_rd.sqr, 8);   
         phase.drop_objection(this);
     endtask
 endclass
@@ -57,9 +59,11 @@ class read_test extends test;
 
     task run_phase(uvm_phase phase);
         read_seq rseq = read_seq::type_id::create("rseq");
+        write_seq_low wrtl = write_seq_low::type_id::create("wrtl");
 
         phase.raise_objection(this);
-            rseq.start_with(env.ag_rd.sqr, 8);   
+            rseq.start_with(env.ag_rd.sqr, 8);  
+            wrtl.start_with(env.ag_rd.sqr, 8);
         phase.drop_objection(this);
     endtask
 endclass
@@ -178,8 +182,12 @@ class all_test extends test;
 
     task do_concurrent(int n);
         fork
-            begin write_seq w = write_seq::type_id::create("w"); w.start_with(env.ag_wr.sqr, n); end
-            begin read_seq  r = read_seq::type_id::create("r");  r.start_with(env.ag_rd.sqr, n); end
+            begin
+                write_seq w = write_seq::type_id::create("w"); w.start_with(env.ag_wr.sqr, n); 
+            end
+            begin
+                read_seq  r = read_seq::type_id::create("r");  r.start_with(env.ag_rd.sqr, n);
+            end
         join
     endtask
 

@@ -88,6 +88,16 @@ QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
 Top level modules:
 	--none--
 
+} {} {}} F:/Asynchronous_FIFO/async_FIFO/tb/uvm_tb/test.sv {1 {vlog -work work -vopt -sv -stats=none F:/Asynchronous_FIFO/async_FIFO/tb/uvm_tb/test.sv
+QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
+** Note: (vlog-2286) F:/Asynchronous_FIFO/async_FIFO/tb/uvm_tb/test.sv(1): Using implicit +incdir+F:/Questa_quacked/New folder/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
+-- Compiling package test_sv_unit
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+-- Importing package af_fpkg
+
+Top level modules:
+	--none--
+
 } {} {}} F:/Asynchronous_FIFO/async_FIFO/tb/uvm_tb/top_tb.sv {1 {vlog -work work -vopt -sv -stats=none F:/Asynchronous_FIFO/async_FIFO/tb/uvm_tb/top_tb.sv
 QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
 ** Note: (vlog-2286) F:/Asynchronous_FIFO/async_FIFO/tb/uvm_tb/top_tb.sv(1): Using implicit +incdir+F:/Questa_quacked/New folder/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
@@ -101,16 +111,6 @@ QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
 
 Top level modules:
 	top_tb
-
-} {} {}} F:/Asynchronous_FIFO/async_FIFO/tb/uvm_tb/test.sv {1 {vlog -work work -vopt -sv -stats=none F:/Asynchronous_FIFO/async_FIFO/tb/uvm_tb/test.sv
-QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
-** Note: (vlog-2286) F:/Asynchronous_FIFO/async_FIFO/tb/uvm_tb/test.sv(1): Using implicit +incdir+F:/Questa_quacked/New folder/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
--- Compiling package test_sv_unit
--- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
--- Importing package af_fpkg
-
-Top level modules:
-	--none--
 
 } {} {}} F:/Asynchronous_FIFO/async_FIFO/tb/uvm_tb/driver_rd.sv {1 {vlog -work work -vopt -sv -stats=none F:/Asynchronous_FIFO/async_FIFO/tb/uvm_tb/driver_rd.sv
 QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
@@ -157,16 +157,6 @@ QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
 ** Note: (vlog-2286) F:/Asynchronous_FIFO/async_FIFO/tb/uvm_tb/item_rd.sv(1): Using implicit +incdir+F:/Questa_quacked/New folder/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
 -- Compiling package item_rd_sv_unit
 -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
-
-Top level modules:
-	--none--
-
-} {} {}} F:/Asynchronous_FIFO/async_FIFO/tb/uvm_tb/a_fif.sv {1 {vlog -work work -vopt -sv -stats=none F:/Asynchronous_FIFO/async_FIFO/tb/uvm_tb/a_fif.sv
-QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
-** Note: (vlog-2286) F:/Asynchronous_FIFO/async_FIFO/tb/uvm_tb/a_fif.sv(1): Using implicit +incdir+F:/Questa_quacked/New folder/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
--- Compiling package a_fif_sv_unit
--- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
--- Compiling interface a_fif
 
 Top level modules:
 	--none--
