@@ -20,7 +20,6 @@ class driver_wr extends uvm_driver #(item_wr);
         phase.raise_objection(this);
         f_if.wr_rst_n  = 0;
         f_if.write_en  = 0;
-        f_if.read_en   = 0;
         f_if.data_in   = 0;
         repeat(2) @(posedge f_if.clk_wr);
         f_if.wr_rst_n = 1;

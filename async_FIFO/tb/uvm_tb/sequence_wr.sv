@@ -55,3 +55,25 @@ class write_seq_low extends base_seq;
     endtask
 endclass
 
+class write_known_seq extends base_seq;
+    `uvm_object_utils(write_known_seq)
+
+    int count = 1;
+    logic [7:0] first_data = 8'hA0;
+    item_wr tr;
+
+    function new(string name = "write_known_seq");
+        super.new(name);
+    endfunction
+
+    task body();
+        for (int i = 0; i < count; i++) begin
+            tr = item_wr::type_id::create("tr");
+            start_item(tr);
+            assert(tr.randomize() with {write_en == 1;})
+                else `uvm_fatal("GEN", "randomization failed");
+            tr.data_in = first_data + i;
+            finish_item(tr);
+        end
+    endtask
+endclass

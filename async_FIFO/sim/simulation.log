@@ -1,0 +1,1687 @@
+run -all
+# ----------------------------------------------------------------
+# UVM-1.1d
+# (C) 2007-2013 Mentor Graphics Corporation
+# (C) 2007-2013 Cadence Design Systems, Inc.
+# (C) 2006-2013 Synopsys, Inc.
+# (C) 2011-2013 Cypress Semiconductor Corp.
+# ----------------------------------------------------------------
+# 
+#   ***********       IMPORTANT RELEASE NOTES         ************
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_NO_DEPRECATED undefined.
+#   See http://www.eda.org/svdb/view.php?id=3313 for more details.
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_OBJECT_MUST_HAVE_CONSTRUCTOR undefined.
+#   See http://www.eda.org/svdb/view.php?id=3770 for more details.
+# 
+#       (Specify +UVM_NO_RELNOTES to turn off this notice)
+# 
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(277) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2.3
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(278) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
+# UVM_INFO @ 0: reporter [RNTST] Running test all_test...
+# UVM_INFO ../tb/uvm_tb/test.sv(271) @ 0: uvm_test_top [ALL_TEST] starting reset_test
+# item_wr sent to scoreboard wr_rst_n = 0 || w_en = 0 || data_in = 0
+# write transaction recieved from monitor rst_n = 0 || w_en = 0 || data_in = 0 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 0 || rd_en = 0 || data_out = 0
+# read transaction recieved from monitor rst_n = 0 || rd_en = 0 || data_in = x || data_out = 0
+# item_wr sent to scoreboard wr_rst_n = 0 || w_en = 0 || data_in = 0
+# write transaction recieved from monitor rst_n = 0 || w_en = 0 || data_in = 0 || data_out = x
+# UVM_INFO ../tb/uvm_tb/test.sv(272) @ 20: uvm_test_top [ALL_TEST] starting write_test
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 0 || data_in = 0
+# write transaction recieved from monitor rst_n = 1 || w_en = 0 || data_in = 0 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 163
+# item_rd sent to scoreboard rd_rst_n = 0 || rd_en = 0 || data_out = 0
+# read transaction recieved from monitor rst_n = 0 || rd_en = 0 || data_in = x || data_out = 0
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 163
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 163 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 154
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 154
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 154 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 109
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 0 || data_out = 0
+# read transaction recieved from monitor rst_n = 1 || rd_en = 0 || data_in = x || data_out = 0
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 109
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 109 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 43
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 43
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 43 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 46
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 0 || data_out = 0
+# read transaction recieved from monitor rst_n = 1 || rd_en = 0 || data_in = x || data_out = 0
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 46
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 46 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 247
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 247
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 247 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 234
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 0 || data_out = 0
+# read transaction recieved from monitor rst_n = 1 || rd_en = 0 || data_in = x || data_out = 0
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 234
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 234 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 11
+# UVM_INFO ../tb/uvm_tb/test.sv(273) @ 100: uvm_test_top [ALL_TEST] starting read_test
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 11
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 11 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 0 || data_out = 0
+# read transaction recieved from monitor rst_n = 1 || rd_en = 0 || data_in = x || data_out = 0
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 11
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 11 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 11
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 11 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 163
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 163
+# test passed expected :: 163 || data out = 163 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 11
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 11 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 11
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 11 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 154
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 154
+# test passed expected :: 154 || data out = 154 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 11
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 11 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 11
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 11 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 109
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 109
+# test passed expected :: 109 || data out = 109 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 11
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 11 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 11
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 11 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 43
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 43
+# test passed expected :: 43 || data out = 43 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 11
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 11 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 11
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 11 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 46
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 46
+# test passed expected :: 46 || data out = 46 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 11
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 11 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 11
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 11 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 247
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 247
+# test passed expected :: 247 || data out = 247 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 11
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 11 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 11
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 11 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 234
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 234
+# test passed expected :: 234 || data out = 234 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 11
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 11 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# UVM_INFO ../tb/uvm_tb/test.sv(274) @ 260: uvm_test_top [ALL_TEST] starting rd_aftr_wr
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 11
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 11 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 213
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 11
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 11
+# test passed expected :: 11 || data out = 11 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 213
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 213 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 86
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 86
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 86 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 229
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 11
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 11
+# test passed expected :: 11 || data out = 11 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 229
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 229 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 144
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 144
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 144 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 224
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 11
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 11
+# test passed expected :: 11 || data out = 11 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 224
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 224 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 227
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 227
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 227 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 181
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 11
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 11
+# test passed expected :: 11 || data out = 11 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 181
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 181 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 146
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 146
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 146 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 11
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 11
+# test passed expected :: 11 || data out = 11 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 146
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 146 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 146
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 146 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 11
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 11
+# test passed expected :: 11 || data out = 11 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 146
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 146 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 146
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 146 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 11
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 11
+# test passed expected :: 11 || data out = 11 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 146
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 146 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 146
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 146 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 213
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 213
+# test passed expected :: 213 || data out = 213 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 146
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 146 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 146
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 146 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 229
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 229
+# test passed expected :: 229 || data out = 229 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 146
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 146 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 146
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 146 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 224
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 224
+# test passed expected :: 224 || data out = 224 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 146
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 146 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 146
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 146 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 181
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 181
+# test passed expected :: 181 || data out = 181 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 146
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 146 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 146
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 146 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 146
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 146
+# test passed expected :: 146 || data out = 146 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 146
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 146 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# UVM_INFO ../tb/uvm_tb/test.sv(275) @ 500: uvm_test_top [ALL_TEST] starting concurrent
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 146
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 146 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 167
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 146
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 146
+# test passed expected :: 146 || data out = 146 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 167
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 167 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 109
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 109
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 109 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 1
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 146
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 146
+# test passed expected :: 146 || data out = 146 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 1
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 1 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 106
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 106
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 106 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 145
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 146
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 146
+# test passed expected :: 146 || data out = 146 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 145
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 145 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 39
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 39
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 39 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 248
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 146
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 146
+# test passed expected :: 146 || data out = 146 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 248
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 248 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 147
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 147
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 147 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 198
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 146
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 146
+# test passed expected :: 146 || data out = 146 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 198
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 198 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 241
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 241
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 241 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 216
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 146
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 146
+# test passed expected :: 146 || data out = 146 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 216
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 216 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 136
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 136
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 136 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 178
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 146
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 146
+# test passed expected :: 146 || data out = 146 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 178
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 178 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 57
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 57
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 57 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 222
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 167
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 167
+# test passed expected :: 167 || data out = 167 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 222
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 222 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 109
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 109
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 109 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 134
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 1
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 1
+# test passed expected :: 1 || data out = 1 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 134
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 134 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 232
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 232
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 232 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 135
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 145
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 145
+# test passed expected :: 145 || data out = 145 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 135
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 135 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 198
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 198
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 198 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 5
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 248
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 248
+# test passed expected :: 248 || data out = 248 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 5
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 5 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 251
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 251
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 251 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 31
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 198
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 198
+# test passed expected :: 198 || data out = 198 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 31
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 31 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 50
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 50
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 50 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 170
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 216
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 216
+# test passed expected :: 216 || data out = 216 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 170
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 170 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 122
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 122
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 122 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 151
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 178
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 178
+# test passed expected :: 178 || data out = 178 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 151
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 151 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 237
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 237
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 237 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 194
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 222
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 222
+# test passed expected :: 222 || data out = 222 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 194
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 194 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 53
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 53
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 53 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 104
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 134
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 134
+# test passed expected :: 134 || data out = 134 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 104
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 104 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 227
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 227
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 227 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 237
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 135
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 135
+# test passed expected :: 135 || data out = 135 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 237
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 237 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 196
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 196
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 196 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 236
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 5
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 5
+# test passed expected :: 5 || data out = 5 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 236
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 236 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 162
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 162
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 162 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 211
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 31
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 31
+# test passed expected :: 31 || data out = 31 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 211
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 211 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 160
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 160
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 160 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 110
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 170
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 170
+# test passed expected :: 170 || data out = 170 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 110
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 110 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 103
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 103
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 103 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 146
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 151
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 151
+# test passed expected :: 151 || data out = 151 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 146
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 146 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 111
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 111
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 111 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 25
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 194
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 194
+# test passed expected :: 194 || data out = 194 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 25
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 25 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 216
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 216
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 216 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 6
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 104
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 104
+# test passed expected :: 104 || data out = 104 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 6
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 6 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 34
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 34
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 34 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 141
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 237
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 237
+# test passed expected :: 237 || data out = 237 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 141
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 141 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 183
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 183
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 183 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 200
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 236
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 236
+# test passed expected :: 236 || data out = 236 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 200
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 200 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 109
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 109
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 109 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 211
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 211
+# test passed expected :: 211 || data out = 211 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 109
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 109 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 109
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 109 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 110
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 110
+# test passed expected :: 110 || data out = 110 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 109
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 109 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 109
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 109 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 146
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 146
+# test passed expected :: 146 || data out = 146 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 109
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 109 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 109
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 109 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 25
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 25
+# test passed expected :: 25 || data out = 25 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 109
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 109 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 109
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 109 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 6
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 6
+# test passed expected :: 6 || data out = 6 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 109
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 109 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 109
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 109 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 141
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 141
+# test passed expected :: 141 || data out = 141 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 109
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 109 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 109
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 109 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 200
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 200
+# test passed expected :: 200 || data out = 200 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 109
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 109 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 109
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 109 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 109
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 109
+# test passed expected :: 109 || data out = 109 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 109
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 109 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 109
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 109 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 109
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 109
+# test passed expected :: 109 || data out = 109 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 109
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 109 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 109
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 109 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 109
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 109
+# test passed expected :: 109 || data out = 109 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 109
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 109 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 109
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 109 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 109
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 109
+# test passed expected :: 109 || data out = 109 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 109
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 109 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 109
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 109 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 109
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 109
+# test passed expected :: 109 || data out = 109 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 109
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 109 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 109
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 109 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 109
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 109
+# test passed expected :: 109 || data out = 109 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 109
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 109 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 109
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 109 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 109
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 109
+# test passed expected :: 109 || data out = 109 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 109
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 109 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 109
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 109 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 109
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 109
+# test passed expected :: 109 || data out = 109 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 109
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 109 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 109
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 109 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 109
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 109
+# test passed expected :: 109 || data out = 109 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 109
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 109 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 109
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 109 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 109
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 109
+# test passed expected :: 109 || data out = 109 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 109
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 109 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 109
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 109 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 109
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 109
+# test passed expected :: 109 || data out = 109 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 109
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 109 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 109
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 109 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 109
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 109
+# test passed expected :: 109 || data out = 109 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 109
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 109 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 109
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 109 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 109
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 109
+# test passed expected :: 109 || data out = 109 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 109
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 109 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 109
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 109 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 109
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 109
+# test passed expected :: 109 || data out = 109 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 109
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 109 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 109
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 109 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 109
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 109
+# test passed expected :: 109 || data out = 109 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 109
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 109 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 109
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 109 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 109
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 109
+# test passed expected :: 109 || data out = 109 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 109
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 109 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 109
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 109 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 109
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 109
+# test passed expected :: 109 || data out = 109 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 109
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 109 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 109
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 109 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 109
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 109
+# test passed expected :: 109 || data out = 109 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 109
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 109 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# UVM_INFO ../tb/uvm_tb/test.sv(276) @ 1500: uvm_test_top [ALL_TEST] starting full bndry
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 109
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 109 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 145
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 109
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 109
+# test passed expected :: 109 || data out = 109 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 145
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 145 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 149
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 149
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 149 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 244
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 109
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 109
+# test passed expected :: 109 || data out = 109 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 244
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 244 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 79
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 79
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 79 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 250
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 109
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 109
+# test passed expected :: 109 || data out = 109 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 250
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 250 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 16
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 16
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 16 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 48
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 109
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 109
+# test passed expected :: 109 || data out = 109 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 48
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 48 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 217
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 217
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 217 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 28
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 109
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 109
+# test passed expected :: 109 || data out = 109 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 28
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 28 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 158
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 158
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 158 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 245
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 109
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 109
+# test passed expected :: 109 || data out = 109 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 245
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 245 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 244
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 244
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 244 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 99
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 109
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 109
+# test passed expected :: 109 || data out = 109 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 99
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 99 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 29
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 29
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 29 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 150
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 145
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 145
+# test passed expected :: 145 || data out = 145 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 150
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 150 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 10
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 10
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 10 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 52
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 244
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 244
+# test passed expected :: 244 || data out = 244 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 52
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 52 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 65
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 65
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 65 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 161
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 250
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 250
+# test passed expected :: 250 || data out = 250 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 161
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 161 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 188
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 188
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 188 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 24
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 48
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 48
+# test passed expected :: 48 || data out = 48 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 24
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 24 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 160
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 160
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 160 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 139
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 28
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 28
+# test passed expected :: 28 || data out = 28 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 139
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 139 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 175
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 175
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 175 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 216
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 245
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 245
+# test passed expected :: 245 || data out = 245 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 216
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 216 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 31
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 31
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 31 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 203
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 99
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 99
+# test passed expected :: 99 || data out = 99 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 203
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 203 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 0
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 0
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 0 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 183
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 150
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 150
+# test passed expected :: 150 || data out = 150 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 183
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 183 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 189
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 189
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 189 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 213
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 52
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 52
+# test passed expected :: 52 || data out = 52 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 213
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 213 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 201
+# UVM_INFO ../tb/uvm_tb/test.sv(277) @ 1820: uvm_test_top [ALL_TEST] starting empty bndry
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 201
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 201 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 161
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 161
+# test passed expected :: 161 || data out = 161 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 201
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 201 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 201
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 201 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 24
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 24
+# test passed expected :: 24 || data out = 24 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 201
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 201 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 201
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 201 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 139
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 139
+# test passed expected :: 139 || data out = 139 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 201
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 201 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 201
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 201 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 216
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 216
+# test passed expected :: 216 || data out = 216 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 201
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 201 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 201
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 201 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 203
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 203
+# test passed expected :: 203 || data out = 203 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 201
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 201 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 201
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 201 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 183
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 183
+# test passed expected :: 183 || data out = 183 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 201
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 201 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 201
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 201 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 213
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 213
+# test passed expected :: 213 || data out = 213 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 201
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 201 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 201
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 201 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 201
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 201
+# test passed expected :: 201 || data out = 201 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 201
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 201 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 201
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 201 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 201
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 201
+# test passed expected :: 201 || data out = 201 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 201
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 201 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 201
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 201 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 201
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 201
+# test passed expected :: 201 || data out = 201 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 201
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 201 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 201
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 201 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 201
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 201
+# test passed expected :: 201 || data out = 201 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 201
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 201 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 201
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 201 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 201
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 201
+# test passed expected :: 201 || data out = 201 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 201
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 201 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 201
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 201 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 201
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 201
+# test passed expected :: 201 || data out = 201 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 201
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 201 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 201
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 201 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 201
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 201
+# test passed expected :: 201 || data out = 201 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 201
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 201 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 201
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 201 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 201
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 201
+# test passed expected :: 201 || data out = 201 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 201
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 201 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 201
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 201 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 201
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 201
+# test passed expected :: 201 || data out = 201 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 201
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 201 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 201
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 201 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 201
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 201
+# test passed expected :: 201 || data out = 201 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 201
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 201 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 201
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 201 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 201
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 201
+# test passed expected :: 201 || data out = 201 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 201
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 201 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 201
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 201 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 201
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 201
+# test passed expected :: 201 || data out = 201 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 201
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 201 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 201
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 201 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 201
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 201
+# test passed expected :: 201 || data out = 201 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 201
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 201 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 201
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 201 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 201
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 201
+# test passed expected :: 201 || data out = 201 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 201
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 201 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 201
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 201 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 201
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 201
+# test passed expected :: 201 || data out = 201 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 201
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 201 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 201
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 201 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 201
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 201
+# test passed expected :: 201 || data out = 201 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 201
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 201 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 201
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 201 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 201
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 201
+# test passed expected :: 201 || data out = 201 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 201
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 201 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 201
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 201 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 201
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 201
+# test passed expected :: 201 || data out = 201 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 201
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 201 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 201
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 201 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 201
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 201
+# test passed expected :: 201 || data out = 201 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 201
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 201 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 201
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 201 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 201
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 201
+# test passed expected :: 201 || data out = 201 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 201
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 201 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 201
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 201 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 201
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 201
+# test passed expected :: 201 || data out = 201 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 201
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 201 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 201
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 201 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 201
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 201
+# test passed expected :: 201 || data out = 201 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 201
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 201 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 201
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 201 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 201
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 201
+# test passed expected :: 201 || data out = 201 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 201
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 201 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 201
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 201 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 201
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 201
+# test passed expected :: 201 || data out = 201 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 201
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 201 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 201
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 201 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 201
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 201
+# test passed expected :: 201 || data out = 201 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 201
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 201 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# UVM_INFO ../tb/uvm_tb/test.sv(278) @ 2460: uvm_test_top [ALL_TEST] checking empty pointer synchronization
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 201
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 201 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 165
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 201
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 201
+# test passed expected :: 201 || data out = 201 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 165
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 165 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 0 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 165
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 165 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 0 || data_out = 201
+# read transaction recieved from monitor rst_n = 1 || rd_en = 0 || data_in = x || data_out = 201
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 165
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 165 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 0 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 165
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 165 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 0 || data_out = 201
+# read transaction recieved from monitor rst_n = 1 || rd_en = 0 || data_in = x || data_out = 201
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 165
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 165 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 165
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 165 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 201
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 201
+# test passed expected :: 201 || data out = 201 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 165
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 165 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 0 || data_in = x
+# UVM_INFO ../tb/uvm_tb/test.sv(281) @ 2540: uvm_test_top [ALL_TEST] checking full pointer synchronization
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 165
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 165 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 160
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 0 || data_out = 201
+# read transaction recieved from monitor rst_n = 1 || rd_en = 0 || data_in = x || data_out = 201
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 160
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 160 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 161
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 161
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 161 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 162
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 0 || data_out = 201
+# read transaction recieved from monitor rst_n = 1 || rd_en = 0 || data_in = x || data_out = 201
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 162
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 162 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 163
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 163
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 163 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 164
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 0 || data_out = 201
+# read transaction recieved from monitor rst_n = 1 || rd_en = 0 || data_in = x || data_out = 201
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 164
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 164 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 165
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 165
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 165 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 166
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 0 || data_out = 201
+# read transaction recieved from monitor rst_n = 1 || rd_en = 0 || data_in = x || data_out = 201
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 166
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 166 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 167
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 167
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 167 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 0 || data_in = 242
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 0 || data_out = 201
+# read transaction recieved from monitor rst_n = 1 || rd_en = 0 || data_in = x || data_out = 201
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 0 || data_in = 242
+# write transaction recieved from monitor rst_n = 1 || w_en = 0 || data_in = 242 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 0 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 0 || data_in = 242
+# write transaction recieved from monitor rst_n = 1 || w_en = 0 || data_in = 242 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 0 || data_out = 201
+# read transaction recieved from monitor rst_n = 1 || rd_en = 0 || data_in = x || data_out = 201
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 0 || data_in = 242
+# write transaction recieved from monitor rst_n = 1 || w_en = 0 || data_in = 242 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 0 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 0 || data_in = 242
+# write transaction recieved from monitor rst_n = 1 || w_en = 0 || data_in = 242 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 0 || data_out = 201
+# read transaction recieved from monitor rst_n = 1 || rd_en = 0 || data_in = x || data_out = 201
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 0 || data_in = 242
+# write transaction recieved from monitor rst_n = 1 || w_en = 0 || data_in = 242 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 0 || data_in = 242
+# write transaction recieved from monitor rst_n = 1 || w_en = 0 || data_in = 242 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 201
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 201
+# test passed expected :: 201 || data out = 201 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 0 || data_in = 242
+# write transaction recieved from monitor rst_n = 1 || w_en = 0 || data_in = 242 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 0 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 0 || data_in = 242
+# write transaction recieved from monitor rst_n = 1 || w_en = 0 || data_in = 242 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 0 || data_in = 43
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 0 || data_out = 201
+# read transaction recieved from monitor rst_n = 1 || rd_en = 0 || data_in = x || data_out = 201
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 0 || data_in = 43
+# write transaction recieved from monitor rst_n = 1 || w_en = 0 || data_in = 43 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 0 || data_in = 87
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 0 || data_in = 87
+# write transaction recieved from monitor rst_n = 1 || w_en = 0 || data_in = 87 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 1 || data_in = 176
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 0 || data_out = 201
+# read transaction recieved from monitor rst_n = 1 || rd_en = 0 || data_in = x || data_out = 201
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 176
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 176 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 0 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 176
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 176 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 0 || data_out = 201
+# read transaction recieved from monitor rst_n = 1 || rd_en = 0 || data_in = x || data_out = 201
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 176
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 176 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 0 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 176
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 176 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 0 || data_out = 201
+# read transaction recieved from monitor rst_n = 1 || rd_en = 0 || data_in = x || data_out = 201
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 176
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 176 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 176
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 176 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 201
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 201
+# test passed expected :: 201 || data out = 201 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 176
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 176 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 176
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 176 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 201
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 201
+# test passed expected :: 201 || data out = 201 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 176
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 176 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 176
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 176 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 201
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 201
+# test passed expected :: 201 || data out = 201 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 176
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 176 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 176
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 176 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 201
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 201
+# test passed expected :: 201 || data out = 201 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 176
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 176 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 176
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 176 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 165
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 165
+# test passed expected :: 165 || data out = 165 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 176
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 176 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 176
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 176 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 165
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 165
+# test passed expected :: 165 || data out = 165 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 176
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 176 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 176
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 176 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 160
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 160
+# test passed expected :: 160 || data out = 160 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 176
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 176 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 1 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 176
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 176 || data_out = x
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 1 || data_out = 176
+# read transaction recieved from monitor rst_n = 1 || rd_en = 1 || data_in = x || data_out = 176
+# test passed expected :: 176 || data out = 176 
+# 
+# =========================================
+# 
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 176
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 176 || data_out = x
+# read transaction sent to dut rd_rst_n = 1 ||rd_en = 0 || data_in = x
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 1 || data_in = 176
+# write transaction recieved from monitor rst_n = 1 || w_en = 1 || data_in = 176 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 0 || data_in = 106
+# item_rd sent to scoreboard rd_rst_n = 1 || rd_en = 0 || data_out = 176
+# read transaction recieved from monitor rst_n = 1 || rd_en = 0 || data_in = x || data_out = 176
+# item_wr sent to scoreboard wr_rst_n = 1 || w_en = 0 || data_in = 106
+# write transaction recieved from monitor rst_n = 1 || w_en = 0 || data_in = 106 || data_out = x
+# write transaction sent to dut wr_rst_n = 1 || w_en = 0 || data_in = 129
+# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1267) @ 2960: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# UVM_INFO ../tb/uvm_tb/scoreboard.sv(146) @ 2960: uvm_test_top.env.scb [SCOREBOARD_REPORT] TEST DONE : PASS = 128, FAIL = 0
+# UVM_INFO ../tb/uvm_tb/scoreboard.sv(149) @ 2960: uvm_test_top.env.scb [SCOREBOARD_REPORT] *** TEST PASSED ***
+# UVM_INFO ../tb/uvm_tb/test.sv(289) @ 2960: uvm_test_top [TEST_REPORT] all test done
+# 
+# --- UVM Report Summary ---
+# 
+# ** Report counts by severity
+# UVM_INFO :   16
+# UVM_WARNING :    0
+# UVM_ERROR :    0
+# UVM_FATAL :    0
+# ** Report counts by id
+# [ALL_TEST]     9
+# [Questa UVM]     2
+# [RNTST]     1
+# [SCOREBOARD_REPORT]     2
+# [TEST_DONE]     1
+# [TEST_REPORT]     1
+# ** Note: $finish    : F:/Questa_quacked/New folder/win64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
+#    Time: 2960 ns  Iteration: 61  Instance: /top_tb
+# 1
+# Break in Task uvm_pkg/uvm_root::run_test at F:/Questa_quacked/New folder/win64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh line 430
+transcript file ""

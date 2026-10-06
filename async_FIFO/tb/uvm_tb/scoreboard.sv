@@ -15,10 +15,14 @@ class scoreboard extends uvm_scoreboard;
     logic [7:0] expected;
     int pass = 0;
     int fail = 0;
-    logic [4:0] b_wrptr = 0;
-    logic [4:0] b_rdptr = 0;
+    logic [3:0] b_wrptr = 4'b0;
+    logic [3:0] b_rdptr = 4'b0;
     int full = 0;
     int empty = 0;
+    logic [3:0]rdptr1,rdptr2;
+    logic [3:0]wrptr1,wrptr2;
+    int full_mismatch = 0;
+    int empty_mismatch = 0;  
 
     function new(string name = "scoreboard",uvm_component parent = null);
         super.new(name,parent);
@@ -31,27 +35,23 @@ class scoreboard extends uvm_scoreboard;
     endfunction
 
     virtual function void write_wr(item_wr req);
-    int did_push = 0;
-    int rdptr1,rdptr2;
+    
+    
         $display("write transaction recieved from monitor rst_n = %0b || w_en = %0b || data_in = %0d || data_out = %0d",
                     req.wr_rst_n,req.write_en,req.data_in,req.data_out);
         if(!req.wr_rst_n) begin
-            fifo = 8'b0;
             full_mismatch = 0;
+            b_wrptr = 4'b0;
         end
         else 
         begin                
-            rdptr1 = b_rdptr;
-            rdptr2 = rdptr1;
-
-            full = ((b_wrptr[2:0] == rdptr2[2:0]) && (b_wrptr[3] != rdptr2[3])) ? 1 : 0;
 
             if(req.write_en && !full) begin
                 fifo[b_wrptr[2:0]] = req.data_in;
                 b_wrptr = b_wrptr + 1;
             end
 
-            if(req.full && !full) begin 
+            if(req.full !== full) begin 
                 `uvm_error("SCB", $sformatf("full mismatch detected time = %0t || wr_rst_n = %0b || w_en = %0b || data_in = %0d || data_out = %0d",
                             $time, req.wr_rst_n, req.write_en, req.data_in, req.data_out))
             end
@@ -65,30 +65,42 @@ class scoreboard extends uvm_scoreboard;
                 full_mismatch = 0;   
             end     
         end
+
+        if(!req.wr_rst_n) begin
+            rdptr1 = 4'b0;
+            rdptr2 = 4'b0;
+        end 
+        else begin 
+            rdptr1 <= b_rdptr;
+            rdptr2 <= rdptr1;
+        end
+
+        full = ((b_wrptr[2:0] == rdptr1[2:0]) && (b_wrptr[3] != rdptr1[3])) ? 1 : 0;
+
     endfunction
         
     virtual function void write_rd(item_rd req);
         bit did_pop = 0; 
-        logic wrptr1,wrptr2;  
 
         $display("read transaction recieved from monitor rst_n = %0b || rd_en = %0b || data_in = %0d || data_out = %0d",
                     req.rd_rst_n,req.read_en,req.data_in,req.data_out);
         if(!req.rd_rst_n) begin
-            fifo = 8'b0;
             empty_mismatch = 0;
+            b_rdptr = 4'b0;
         end
         else
         begin    
-            wrptr1 = b_wrptr;
-            wrptr2 = wrptr1;
-       
+           
             if(req.read_en && !empty) begin
                 expected = fifo[b_rdptr[2:0]];
                 b_rdptr = b_rdptr + 1;
                 did_pop = 1;
             end
-            
-            empty = (b_rdptr[3:0] == wrptr2[3:0]);  
+
+            if(req.empty !== empty) begin 
+                `uvm_error("SCB", $sformatf("empty mismatch detected time = %0t || rd_rst_n = %0b || rd_en = %0b || data_in = %0d || data_out = %0d ||expected = %0d",
+                            $time, req.rd_rst_n, req.read_en, req.data_in, req.data_out, expected))
+            end
             
             if((empty) && req.empty) begin 
                 empty_mismatch++;
@@ -115,7 +127,18 @@ class scoreboard extends uvm_scoreboard;
                     pass++;
                 end
             end   
-        end            
+        end 
+
+        if(!req.rd_rst_n) begin
+            wrptr1 = 4'b0;
+            wrptr2 = 4'b0;
+        end 
+        else begin
+            wrptr1 <= b_wrptr;
+            wrptr2 <= wrptr1;
+        end
+
+        empty = (b_rdptr[3:0] == wrptr1[3:0]);
     endfunction
 
     function void report_phase(uvm_phase phase);
