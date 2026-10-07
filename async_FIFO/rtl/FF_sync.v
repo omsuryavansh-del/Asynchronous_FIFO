@@ -6,7 +6,10 @@ module FF_sync #(parameter width = 3) (
     output [width:0] sync_ptr
 
 );
-reg [width:0] sync_ff1 , sync_ff2;
+
+(* ASYNC_REG = "TRUE", DONT_TOUCH = "TRUE" *) reg [width:0] sync_ff1;
+(* ASYNC_REG = "TRUE", DONT_TOUCH = "TRUE" *) reg [width:0] sync_ff2;
+
 always @(posedge dest_clk or negedge rst_n) begin 
     if (!rst_n) begin 
         sync_ff1 <= 0;

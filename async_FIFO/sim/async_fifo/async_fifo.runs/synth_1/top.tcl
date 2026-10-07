@@ -87,6 +87,9 @@ OPTRACE "Adding files" END { }
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
+read_xdc F:/Asynchronous_FIFO/async_FIFO/sim/async_fifo/async_fifo.srcs/constrs_1/new/async_clocks.xdc
+set_property used_in_implementation false [get_files F:/Asynchronous_FIFO/async_FIFO/sim/async_fifo/async_fifo.srcs/constrs_1/new/async_clocks.xdc]
+
 set_param ips.enableIPCacheLiteLoad 1
 close [open __synthesis_is_running__ w]
 

@@ -121,6 +121,7 @@ OPTRACE "set parameters" END { }
 OPTRACE "add files" START { }
   add_files -quiet F:/Asynchronous_FIFO/async_FIFO/sim/async_fifo/async_fifo.runs/synth_1/top.dcp
 OPTRACE "read constraints: implementation" START { }
+  read_xdc F:/Asynchronous_FIFO/async_FIFO/sim/async_fifo/async_fifo.srcs/constrs_1/new/async_clocks.xdc
 OPTRACE "read constraints: implementation" END { }
 OPTRACE "read constraints: implementation_pre" START { }
 OPTRACE "read constraints: implementation_pre" END { }
